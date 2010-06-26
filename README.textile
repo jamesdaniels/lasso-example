@@ -1,0 +1,16 @@
+h1. Lasso
+
+h2. Identity herding with OAuth
+
+Lasso makes it damn easy to add SSO to your Rails application. Just load in your configuration, add a couple associations, and you are set to hit the trail running, partner.
+
+This is the Lasso example application, which allows registration and identity claiming via OAuth.
+
+"You can find more information on the Lasso gem here.":http://github.com/jamesdaniels/lasso
+
+h2. Getting started
+
+<pre>
+  rake gems:install
+  rake db:setup
+</pre>
