@@ -1,7 +1,18 @@
+<h2>Your account</h2>
+
 <p>
   <b>Login:</b>
-  <%= @user.login || raw('<em>n/a - OAuth user</em>') %>
+  <%= @user.login.blank? && raw('<em>n/a</em>') || @user.login %>
 </p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email.blank? && raw('<em>n/a</em>') || @user.email %>
+</p>
+
+<%= link_to 'Edit account details', edit_account_path %>
+
+<h2>Access tokens</h2>
 
 <ul>
   <% @user.access_keys.each do |access_key| %>
@@ -13,5 +24,3 @@
   <li><%= link_to 'Add a LinkedIn connection', oauth_authorize_path(:service => 'LinkedIn') %></li>
   <li><%= link_to 'Add a Facebook connection', oauth_authorize_path(:service => 'Facebook') %></li>
 </ul>
-
-<%= link_to 'Edit', edit_account_path %>

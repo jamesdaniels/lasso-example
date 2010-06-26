@@ -7,11 +7,12 @@ class User < ActiveRecord::Base
       without_sso.merge_validates_length_of_password_confirmation_field_options
       without_sso.merge_validates_length_of_login_field_options
       without_sso.merge_validates_format_of_login_field_options
-      without_sso.merge_validates_uniqueness_of_login_field_options
       without_sso.merge_validates_format_of_email_field_options
       without_sso.merge_validates_length_of_email_field_options
       without_sso.merge_validates_uniqueness_of_email_field_options
     end
+    config.merge_validates_uniqueness_of_login_field_options :allow_nil => true
+    config.merge_validates_uniqueness_of_email_field_options :allow_nil => true
   end
 
   has_many :access_keys, :dependent => :destroy, :as => :owner

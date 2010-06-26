@@ -1636,3 +1636,1372 @@ ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" wit
   
 
 Rendering rescues/layout (not_found)
+  [4;36;1mAccessKey Load (0.5ms)[0m   [0;1mSELECT * FROM "access_keys" LIMIT 1[0m
+  [4;35;1mAccessKey Load (0.0ms)[0m   [0mSQLite3::SQLException: near "&": syntax error: SELECT * FROM "access_keys" WHERE (service = 'LinkedIn' && (owner_id = 1 && owner_type = 'User' || token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) [0m
+  [4;36;1mAccessKey Load (0.6ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 1 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) [0m
+  [4;35;1mAccessKey Load (0.6ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 1 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) [0m
+  [4;36;1mAccessKey Load (0.5ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 1 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) [0m
+  [4;35;1mAccessKey Load (0.6ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 1 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) LIMIT 1[0m
+  [4;36;1mAccessKey Load (0.6ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 1 and owner_type = 'User' or token_a = 'asdf')) LIMIT 1[0m
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 22 and owner_type = 'User' or token_a = 'asdf')) LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:04:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 38ms (View: 17, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:04:36) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:04:38) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=838609e5-3166-482f-8cdd-0c1c9fe031af
+Completed in 376ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:04:44) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"838609e5-3166-482f-8cdd-0c1c9fe031af", "oauth_verifier"=>"09747"}
+  [4;36;1mOAuthOneAccessKey Load (0.0ms)[0m   [0;1mSQLite3::SQLException: near "&": syntax error: SELECT * FROM "access_keys" WHERE (service = 'LinkedIn' && (owner_id = NULL && owner_type = 'User' || token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "&": syntax error: SELECT * FROM "access_keys" WHERE (service = 'LinkedIn' && (owner_id = NULL && owner_type = 'User' || token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) )  LIMIT 1):
+  lasso (0.1.0) lib/lasso/model/instance.rb:11:in `duplicate'
+  lasso (0.1.0) lib/lasso/controller/instance.rb:13:in `create'
+
+Rendered rescues/_trace (111.1ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:05:47) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"838609e5-3166-482f-8cdd-0c1c9fe031af", "oauth_verifier"=>"09747"}
+
+OAuth::Problem (token_rejected):
+  oauth (0.4.0) lib/oauth/consumer.rb:179:in `request'
+  oauth (0.4.0) lib/oauth/consumer.rb:195:in `token_request'
+  oauth (0.4.0) lib/oauth/tokens/request_token.rb:18:in `get_access_token'
+  lasso (0.1.0) lib/lasso/controller/instance.rb:50:in `parse_response'
+  lasso (0.1.0) lib/lasso/controller/instance.rb:12:in `create'
+
+Rendered rescues/_trace (96.6ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:05:50) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 27ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:05:50) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:05:56) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=6b119383-6222-40a7-b6a1-8646d503bc6e
+Completed in 339ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:06:01) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"6b119383-6222-40a7-b6a1-8646d503bc6e", "oauth_verifier"=>"05514"}
+  [4;36;1mOAuthOneAccessKey Load (0.6ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = NULL and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = NULL and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000/account
+Completed in 495ms (DB: 1) | 302 Found [http://localhost/LinkedIn/oauth/callback?oauth_token=6b119383-6222-40a7-b6a1-8646d503bc6e&oauth_verifier=05514]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:06:02) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+Redirected to http://localhost:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/account]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:06:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:06:02) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:07:48) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=2994bd4c-0ee7-4ecb-8c6f-5a4c091a47c0
+Completed in 361ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:07:54) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"2994bd4c-0ee7-4ecb-8c6f-5a4c091a47c0", "oauth_verifier"=>"36652"}
+  [4;35;1mOAuthOneAccessKey Load (0.5ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = NULL and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = NULL and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.save):
+  app/controllers/oauth_controller.rb:11:in `handle_oauth_login'
+  lasso (0.1.0) lib/lasso/controller/instance.rb:15:in `send'
+  lasso (0.1.0) lib/lasso/controller/instance.rb:15:in `create'
+
+Rendered rescues/_trace (32.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:08:03) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"2994bd4c-0ee7-4ecb-8c6f-5a4c091a47c0", "oauth_verifier"=>"36652"}
+
+OAuth::Problem (token_rejected):
+  oauth (0.4.0) lib/oauth/consumer.rb:179:in `request'
+  oauth (0.4.0) lib/oauth/consumer.rb:195:in `token_request'
+  oauth (0.4.0) lib/oauth/tokens/request_token.rb:18:in `get_access_token'
+  lasso (0.1.0) lib/lasso/controller/instance.rb:50:in `parse_response'
+  lasso (0.1.0) lib/lasso/controller/instance.rb:12:in `create'
+
+Rendered rescues/_trace (107.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:08:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 19ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:08:16) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:08:17) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=09c9add3-1ee2-4a45-b19a-09251e0a614c
+Completed in 317ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:08:22) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"09c9add3-1ee2-4a45-b19a-09251e0a614c", "oauth_verifier"=>"37756"}
+  [4;36;1mOAuthOneAccessKey Load (0.5ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = NULL and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = NULL and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-06-26 22:08:22', "perishable_token" = 'MKTx0Av4vfqxBhILg1xD' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/account
+Completed in 439ms (DB: 1) | 302 Found [http://localhost/LinkedIn/oauth/callback?oauth_token=09c9add3-1ee2-4a45-b19a-09251e0a614c&oauth_verifier=37756]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:08:22) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+Completed in 37ms (View: 21, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:08:22) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-26 18:08:31) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/user_session/new
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:08:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 94ms (View: 6, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:08:31) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:08:33) [GET]
+  Parameters: {"service"=>"Facebook", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://graph.facebook.com/oauth/authorize?client_id=5c3c0bd3a3d6734a5db2913bf06d70aa&type=web_server&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2FFacebook%2Foauth%2Fcallback
+Completed in 55ms (DB: 0) | 302 Found [http://localhost/Facebook/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:08:36) [GET]
+  Parameters: {"code"=>"2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|B6NvNXzmrvzD2zNaNqczWSLsT4E.", "service"=>"Facebook", "action"=>"create", "protocol"=>"https", "controller"=>"oauth"}
+  [4;35;1mOAuthTwoAccessKey Load (0.3ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'Facebook' and (owner_id = NULL and owner_type = 'User' or token_a = '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.')) AND ( ("access_keys"."type" = 'OAuthTwoAccessKey' ) ) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: type
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'RjH6bXK3fM7o7ILhcLb0') LIMIT 1[0m
+  [4;36;1mUser Create (0.7ms)[0m   [0;1mINSERT INTO "users" ("single_access_token", "created_at", "crypted_password", "perishable_token", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('RjH6bXK3fM7o7ILhcLb0', '2010-06-26 22:08:37', NULL, 'Yx_sgSSsJ4vwWH5LtvCP', '2010-06-26 22:08:37', NULL, '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4', NULL, NULL)[0m
+  [4;35;1mAccessKey Create (0.1ms)[0m   [0mINSERT INTO "access_keys" ("created_at", "service", "updated_at", "owner_id", "type", "token_a", "token_b", "owner_type") VALUES('2010-06-26 22:08:37', 'Facebook', '2010-06-26 22:08:37', 2, 'OAuthTwoAccessKey', '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.', NULL, 'User')[0m
+Redirected to http://localhost:3000/access_keys/6
+Completed in 949ms (DB: 1) | 302 Found [http://localhost/Facebook/oauth/callback?code=2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079%7CB6NvNXzmrvzD2zNaNqczWSLsT4E.]
+
+
+Processing AccessKeysController#show (for 127.0.0.1 at 2010-06-26 18:08:37) [GET]
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"access_keys"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+  [4;35;1mAccessKey Load (0.3ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys"."id" = 6 AND ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User')) [0m
+Rendering template within layouts/application
+Rendering access_keys/show
+Completed in 35ms (View: 13, DB: 1) | 200 OK [http://localhost/access_keys/6]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:08:37) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:08:40) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 29ms (View: 13, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:08:40) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:08:42) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=e84abe2b-3dc5-41a0-8f84-dd1f006ebdfb
+Completed in 663ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:08:47) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"e84abe2b-3dc5-41a0-8f84-dd1f006ebdfb", "oauth_verifier"=>"35387"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+  [4;35;1mOAuthOneAccessKey Load (0.6ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 345ms (View: 1, DB: 1) | 200 OK [http://localhost/LinkedIn/oauth/callback?oauth_token=e84abe2b-3dc5-41a0-8f84-dd1f006ebdfb&oauth_verifier=35387]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:10:58) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 28ms (View: 12, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:11:01) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=7078976c-f0ee-4b56-9175-ae85d0fe8ae6
+Completed in 367ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:11:05) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"7078976c-f0ee-4b56-9175-ae85d0fe8ae6", "oauth_verifier"=>"39131"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+  [4;35;1mOAuthOneAccessKey Load (0.5ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000/account
+Completed in 375ms (DB: 1) | 302 Found [http://localhost/LinkedIn/oauth/callback?oauth_token=7078976c-f0ee-4b56-9175-ae85d0fe8ae6&oauth_verifier=39131]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:11:06) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.6ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 32ms (View: 16, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:11:06) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:11:46) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 33ms (View: 16, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:11:46) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:11:49) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 28ms (View: 12, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:11:49) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:11:51) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=75c4391e-5b20-4f28-ae50-766835af0903
+Completed in 429ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:11:56) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"75c4391e-5b20-4f28-ae50-766835af0903", "oauth_verifier"=>"90528"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+  [4;35;1mOAuthOneAccessKey Load (0.6ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000/account
+Completed in 364ms (DB: 1) | 302 Found [http://localhost/LinkedIn/oauth/callback?oauth_token=75c4391e-5b20-4f28-ae50-766835af0903&oauth_verifier=90528]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:11:57) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.5ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 33ms (View: 16, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:11:57) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:12:06) [GET]
+  Parameters: {"service"=>"Facebook", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://graph.facebook.com/oauth/authorize?client_id=5c3c0bd3a3d6734a5db2913bf06d70aa&type=web_server&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2FFacebook%2Foauth%2Fcallback
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/Facebook/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:12:12) [GET]
+  Parameters: {"code"=>"2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|B6NvNXzmrvzD2zNaNqczWSLsT4E.", "service"=>"Facebook", "action"=>"create", "protocol"=>"https", "controller"=>"oauth"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+  [4;35;1mOAuthTwoAccessKey Load (0.5ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'Facebook' and (owner_id = 2 and owner_type = 'User' or token_a = '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.')) AND ( ("access_keys"."type" = 'OAuthTwoAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'Facebook' and (owner_id = 2 and owner_type = 'User' or token_a = '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.')) AND ( ("access_keys"."type" = 'OAuthTwoAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'Facebook' and (owner_id = 2 and owner_type = 'User' or token_a = '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.')) AND ( ("access_keys"."type" = 'OAuthTwoAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mOAuthTwoAccessKey Destroy (0.4ms)[0m   [0mDELETE FROM "access_keys" WHERE "id" = 6[0m
+WARNING: Can't mass-assign these protected attributes: type
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-06-26 22:12:12', "perishable_token" = 'UTaBdCbwhlrOlnsbm85Q' WHERE "id" = 2[0m
+  [4;36;1mAccessKey Create (0.2ms)[0m   [0;1mINSERT INTO "access_keys" ("created_at", "service", "updated_at", "owner_id", "type", "token_a", "token_b", "owner_type") VALUES('2010-06-26 22:12:12', 'Facebook', '2010-06-26 22:12:12', 2, 'OAuthTwoAccessKey', '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.', NULL, 'User')[0m
+Redirected to http://localhost:3000/access_keys/7
+Completed in 878ms (DB: 3) | 302 Found [http://localhost/Facebook/oauth/callback?code=2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079%7CB6NvNXzmrvzD2zNaNqczWSLsT4E.]
+
+
+Processing AccessKeysController#show (for 127.0.0.1 at 2010-06-26 18:12:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"7", "controller"=>"access_keys"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+  [4;36;1mAccessKey Load (0.4ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE ("access_keys"."id" = 7 AND ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User')) [0m
+Rendering template within layouts/application
+Rendering access_keys/show
+Completed in 32ms (View: 7, DB: 1) | 200 OK [http://localhost/access_keys/7]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:12:13) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:12:16) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mAccessKey Load (0.4ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 29ms (View: 12, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:12:16) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-26 18:12:23) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '62429d8981cb2b0b316507126d46aa8c7dc3ffef19ce257861d4672387e12fb7948b7375ec2b7ad046b22f777b8915886e452c94e8392b1d17a22e45e7cb8da4') LIMIT 1[0m
+Redirected to http://localhost:3000/user_session/new
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:12:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 93ms (View: 81, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:12:23) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:12:24) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=ed494604-10de-4e19-b517-c8c26e382bd1
+Completed in 342ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:12:32) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"ed494604-10de-4e19-b517-c8c26e382bd1", "oauth_verifier"=>"70427"}
+  [4;36;1mOAuthOneAccessKey Load (0.5ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = NULL and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = NULL and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-06-26 22:12:32', "perishable_token" = 'TXfTtPGBBI11DFzBmf-3' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/account
+Completed in 369ms (DB: 1) | 302 Found [http://localhost/LinkedIn/oauth/callback?oauth_token=ed494604-10de-4e19-b517-c8c26e382bd1&oauth_verifier=70427]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:12:32) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+Completed in 102ms (View: 86, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:12:32) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-26 18:12:37) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/user_session/new
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:12:37) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:12:37) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:12:38) [GET]
+  Parameters: {"service"=>"Facebook", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://graph.facebook.com/oauth/authorize?client_id=5c3c0bd3a3d6734a5db2913bf06d70aa&type=web_server&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2FFacebook%2Foauth%2Fcallback
+Completed in 82ms (DB: 0) | 302 Found [http://localhost/Facebook/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:12:42) [GET]
+  Parameters: {"code"=>"2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|B6NvNXzmrvzD2zNaNqczWSLsT4E.", "service"=>"Facebook", "action"=>"create", "protocol"=>"https", "controller"=>"oauth"}
+  [4;35;1mOAuthTwoAccessKey Load (0.5ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'Facebook' and (owner_id = NULL and owner_type = 'User' or token_a = '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.')) AND ( ("access_keys"."type" = 'OAuthTwoAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'Facebook' and (owner_id = NULL and owner_type = 'User' or token_a = '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.')) AND ( ("access_keys"."type" = 'OAuthTwoAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-06-26 22:12:44', "perishable_token" = 'xpV8i0Lyy8nwNAHKRDZY' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/account
+Completed in 1972ms (DB: 1) | 302 Found [http://localhost/Facebook/oauth/callback?code=2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079%7CB6NvNXzmrvzD2zNaNqczWSLsT4E.]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:12:44) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mAccessKey Load (0.4ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 32ms (View: 16, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:12:44) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:12:46) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=bbc86902-f99a-485f-816c-dcb92cdc50f9
+Completed in 418ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:12:51) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"bbc86902-f99a-485f-816c-dcb92cdc50f9", "oauth_verifier"=>"28630"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mOAuthOneAccessKey Load (0.5ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and (owner_id = 2 and owner_type = 'User' or token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e')) AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000/account
+Completed in 365ms (DB: 1) | 302 Found [http://localhost/LinkedIn/oauth/callback?oauth_token=bbc86902-f99a-485f-816c-dcb92cdc50f9&oauth_verifier=28630]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:12:52) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mAccessKey Load (0.6ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 33ms (View: 16, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:12:52) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:18:04) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=07033672-7320-4fb1-a503-ede0dc30e74c
+Completed in 1273ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:18:11) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"07033672-7320-4fb1-a503-ede0dc30e74c", "oauth_verifier"=>"40586"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+
+ActiveRecord::PreparedStatementInvalid (wrong number of bind variables (4 for 2) in: service = ? and token_a = ?):
+  lasso (0.1.0) lib/lasso/model/instance.rb:11:in `duplicate'
+  lasso (0.1.0) lib/lasso/controller/instance.rb:13:in `create'
+
+Rendered rescues/_trace (38.7ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:21:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Redirected to http://localhost:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 22ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:21:31) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mAccessKey Load (0.4ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 110ms (View: 25, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:21:31) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:21:33) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=4a39d10c-2385-4502-8433-24877f80489e
+Completed in 372ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:21:39) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"4a39d10c-2385-4502-8433-24877f80489e", "oauth_verifier"=>"61592"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mOAuthOneAccessKey Load (0.5ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e') AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e') AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e') AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000/account
+Completed in 517ms (DB: 1) | 302 Found [http://localhost/LinkedIn/oauth/callback?oauth_token=4a39d10c-2385-4502-8433-24877f80489e&oauth_verifier=61592]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:21:40) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mAccessKey Load (0.4ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 29ms (View: 12, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:21:40) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:21:46) [GET]
+  Parameters: {"service"=>"Facebook", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://graph.facebook.com/oauth/authorize?client_id=5c3c0bd3a3d6734a5db2913bf06d70aa&type=web_server&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2FFacebook%2Foauth%2Fcallback
+Completed in 52ms (DB: 0) | 302 Found [http://localhost/Facebook/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:21:58) [GET]
+  Parameters: {"code"=>"2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|B6NvNXzmrvzD2zNaNqczWSLsT4E.", "service"=>"Facebook", "action"=>"create", "protocol"=>"https", "controller"=>"oauth"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mOAuthTwoAccessKey Load (0.5ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'Facebook' and token_a = '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.') AND ( ("access_keys"."type" = 'OAuthTwoAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'Facebook' and token_a = '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.') AND ( ("access_keys"."type" = 'OAuthTwoAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'Facebook' and token_a = '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.') AND ( ("access_keys"."type" = 'OAuthTwoAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mOAuthTwoAccessKey Destroy (0.5ms)[0m   [0;1mDELETE FROM "access_keys" WHERE "id" = 7[0m
+WARNING: Can't mass-assign these protected attributes: type
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-06-26 22:21:59', "perishable_token" = 'T7ph5H87UeU1G8X1Hqn2' WHERE "id" = 2[0m
+  [4;35;1mAccessKey Create (0.2ms)[0m   [0mINSERT INTO "access_keys" ("created_at", "service", "updated_at", "owner_id", "type", "token_a", "token_b", "owner_type") VALUES('2010-06-26 22:21:59', 'Facebook', '2010-06-26 22:21:59', 2, 'OAuthTwoAccessKey', '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.', NULL, 'User')[0m
+Redirected to http://localhost:3000/access_keys/8
+Completed in 1167ms (DB: 3) | 302 Found [http://localhost/Facebook/oauth/callback?code=2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079%7CB6NvNXzmrvzD2zNaNqczWSLsT4E.]
+
+
+Processing AccessKeysController#show (for 127.0.0.1 at 2010-06-26 18:21:59) [GET]
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"access_keys"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys"."id" = 8 AND ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User')) [0m
+Rendering template within layouts/application
+Rendering access_keys/show
+Completed in 37ms (View: 12, DB: 1) | 200 OK [http://localhost/access_keys/8]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:21:59) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:22:01) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 102ms (View: 12, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:22:01) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:22:03) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 29ms (View: 12, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:22:03) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-26 18:22:22) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (2.8ms)
+Completed in 102ms (View: 85, DB: 0) | 200 OK [http://localhost/account/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:22:22) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-26 18:22:24) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-06-26 22:22:24', "email" = '', "perishable_token" = 'tKZUgotQjYQHBcyy4dZQ', "login" = '' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/account
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:22:24) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.6ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 32ms (View: 16, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:22:24) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:24:31) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 29ms (View: 13, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:24:32) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-26 18:24:33) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (2.0ms)
+Completed in 22ms (View: 6, DB: 0) | 200 OK [http://localhost/account/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:24:33) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-26 18:24:34) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-06-26 22:24:34', "perishable_token" = 'c7bLuWiaHwpWxbV6UOgo' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/account
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:24:34) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.5ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 31ms (View: 15, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:24:35) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-26 18:24:38) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (2.1ms)
+Completed in 94ms (View: 7, DB: 0) | 200 OK [http://localhost/account/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:24:38) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-26 18:24:39) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-06-26 22:24:40', "perishable_token" = 'sj2o2tjWOWrOu2fKYfSB' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/account
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:24:40) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 32ms (View: 16, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:24:40) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:25:14) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.7ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 33ms (View: 16, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:25:14) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-26 18:25:17) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (2.0ms)
+Completed in 23ms (View: 6, DB: 0) | 200 OK [http://localhost/account/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:25:17) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-26 18:25:22) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"asdf", "email"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'asdf' AND "users".id <> 2) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-06-26 22:25:22', "perishable_token" = 'AFKXjWrUKAzRnaNTyFFO', "login" = 'asdf' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/account
+Completed in 178ms (DB: 1) | 302 Found [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:25:22) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mAccessKey Load (0.4ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 34ms (View: 14, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:25:22) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:25:47) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mAccessKey Load (0.4ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 36ms (View: 19, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:25:47) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-26 18:26:10) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:26:10) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 107ms (View: 10, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:26:10) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:26:11) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:26:33) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 35ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:26:33) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:26:35) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:26:47) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 34ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:26:49) [GET]
+  Parameters: {"service"=>"Facebook", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://graph.facebook.com/oauth/authorize?client_id=5c3c0bd3a3d6734a5db2913bf06d70aa&type=web_server&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2FFacebook%2Foauth%2Fcallback
+Completed in 58ms (DB: 0) | 302 Found [http://localhost/Facebook/oauth/start]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:27:04) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+Redirected to http://localhost:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/account]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:27:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:27:14) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 113ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:27:14) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:28:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:28:03) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:28:05) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://api.linkedin.com/uas/oauth/authorize?oauth_token=2e4dab69-20a1-4215-a380-f7becf8afb0e
+Completed in 371ms (DB: 0) | 302 Found [http://localhost/LinkedIn/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:28:13) [GET]
+  Parameters: {"service"=>"LinkedIn", "action"=>"create", "protocol"=>"https", "controller"=>"oauth", "oauth_token"=>"2e4dab69-20a1-4215-a380-f7becf8afb0e", "oauth_verifier"=>"36255"}
+  [4;36;1mOAuthOneAccessKey Load (0.5ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e') AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'LinkedIn' and token_a = '3bef7162-c5d9-41ca-9b02-83dce2b9024e') AND ( ("access_keys"."type" = 'OAuthOneAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-06-26 22:28:13', "perishable_token" = 'Uv5qGwsgjIAN7GZX1VIi' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/account
+Completed in 425ms (DB: 2) | 302 Found [http://localhost/LinkedIn/oauth/callback?oauth_token=2e4dab69-20a1-4215-a380-f7becf8afb0e&oauth_verifier=36255]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:28:13) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+Completed in 38ms (View: 20, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:28:13) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-26 18:28:16) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (2.9ms)
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/account/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:28:16) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-26 18:28:19) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"asdf", "email"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'asdf' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (3.2ms)
+Completed in 179ms (View: 9, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:28:19) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-26 18:28:25) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = '' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-06-26 22:28:25', "email" = '', "perishable_token" = 'cV88JoklwAGtU3KQDWHF', "login" = '' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/account
+Completed in 32ms (DB: 1) | 302 Found [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:28:25) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+Completed in 35ms (View: 18, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:28:25) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:28:59) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+Completed in 33ms (View: 17, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:29:00) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:29:12) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+Completed in 33ms (View: 16, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:29:12) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing AccessKeysController#show (for 127.0.0.1 at 2010-06-26 18:29:25) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"access_keys"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mAccessKey Load (0.3ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys"."id" = 5 AND ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User')) [0m
+Rendering template within layouts/application
+Rendering access_keys/show
+Completed in 110ms (View: 88, DB: 1) | 200 OK [http://localhost/access_keys/5]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:29:25) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:29:28) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+Completed in 32ms (View: 16, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:29:32) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mAccessKey Load (0.4ms)[0m   [0mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 1 AND "access_keys".owner_type = 'User') [0m
+Completed in 29ms (View: 12, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:29:32) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-26 18:29:36) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/user_session/new
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:29:37) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:29:37) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#new (for 127.0.0.1 at 2010-06-26 18:29:38) [GET]
+  Parameters: {"service"=>"Facebook", "action"=>"new", "controller"=>"oauth"}
+Redirected to https://graph.facebook.com/oauth/authorize?client_id=5c3c0bd3a3d6734a5db2913bf06d70aa&type=web_server&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2FFacebook%2Foauth%2Fcallback
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/Facebook/oauth/start]
+
+
+Processing OauthController#create (for 127.0.0.1 at 2010-06-26 18:29:50) [GET]
+  Parameters: {"code"=>"2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|B6NvNXzmrvzD2zNaNqczWSLsT4E.", "service"=>"Facebook", "action"=>"create", "protocol"=>"https", "controller"=>"oauth"}
+  [4;35;1mOAuthTwoAccessKey Load (0.5ms)[0m   [0mSELECT * FROM "access_keys" WHERE (service = 'Facebook' and token_a = '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.') AND ( ("access_keys"."type" = 'OAuthTwoAccessKey' ) ) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE (service = 'Facebook' and token_a = '134108176617269|2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079|uHGGLXRNF1j_cUc0WY1CIPXewhw.') AND ( ("access_keys"."type" = 'OAuthTwoAccessKey' ) ) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-06-26 22:29:56', "perishable_token" = '5TgrzbBNYkToPK8X0e8m' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/account
+Completed in 6210ms (DB: 1) | 302 Found [http://localhost/Facebook/oauth/callback?code=2.0HnI8W45vwGjES5Wkj359Q__.3600.1277596800-5805079%7CB6NvNXzmrvzD2zNaNqczWSLsT4E.]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-26 18:29:56) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mAccessKey Load (0.4ms)[0m   [0;1mSELECT * FROM "access_keys" WHERE ("access_keys".owner_id = 2 AND "access_keys".owner_type = 'User') [0m
+Completed in 32ms (View: 12, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:29:56) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-26 18:30:06) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Redirected to http://localhost:3000/user_session/new
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/user_session]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-26 18:30:06) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 20ms (View: 6, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-26 18:30:06) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)

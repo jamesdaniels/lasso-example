@@ -9,7 +9,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
   
   config.gem 'authlogic'
-  config.gem 'lasso'
+  config.gem 'lasso', :version => '0.2.0'
   
   config.time_zone = 'UTC'
   
