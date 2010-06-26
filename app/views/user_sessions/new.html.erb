@@ -12,3 +12,8 @@
   <br />
   <%= f.submit "Login" %>
 <% end %>
+
+<ul>
+  <li><%= link_to 'Login via LinkedIn', oauth_authorize_path(:service => 'LinkedIn') %></li>
+  <li><%= link_to 'Login via Facebook', oauth_authorize_path(:service => 'Facebook') %></li>
+</ul>

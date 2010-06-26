@@ -1,0 +1,13 @@
+<h1><%= @access_key.service %></h1>
+
+<% if @access_key.class == OAuthOneAccessKey %>
+  <h2>OAuth version 1</h2>
+  <p><strong>Token:</strong> <%= @access_key.oauth_token %></p>
+  <p><strong>Token secret:</strong> <%= @access_key.oauth_token_secret %></p>
+<% else %>
+  <h2>OAuth version 2</h2>
+  <p><strong>Access token:</strong> <%= @access_key.access_token %></p>
+  <p><strong>Refresh token:</strong> <%= @access_key.refresh_token %></p>
+<% end %>
+
+<%= link_to 'Revoke access', access_key_path(@access_key), :confirm => 'Are you sure?', :method => :delete %>

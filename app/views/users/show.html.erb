@@ -1,6 +1,17 @@
 <p>
   <b>Login:</b>
-  <%=h @user.login %>
+  <%= @user.login || raw('<em>n/a - OAuth user</em>') %>
 </p>
+
+<ul>
+  <% @user.access_keys.each do |access_key| %>
+    <li><%= link_to access_key.service, access_key_path(access_key) %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <li><%= link_to 'Add a LinkedIn connection', oauth_authorize_path(:service => 'LinkedIn') %></li>
+  <li><%= link_to 'Add a Facebook connection', oauth_authorize_path(:service => 'Facebook') %></li>
+</ul>
 
 <%= link_to 'Edit', edit_account_path %>
